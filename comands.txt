@@ -21,3 +21,33 @@ kubectl get replicaset -o
 
  kubectl rollout undo deploy nginx-deploy -n default
 
+services
+    minikube status
+    minikube start
+    kubectl get all
+        kubectl delete deployment nginx-deploy
+        kubectl delete svc apache-deploy
+    kubectl apply -f apachedeploy.yaml
+    kubectl get all
+    kubectl get deploy
+    kubectl get pod -o wide
+    kubectl apply -f apacheservice.yaml
+    kubectl get svc
+    kubectl describe svc apache-service
+    kubectl port-forward service/apache-service 7000:8080  
+        (o selector: app: apache-webserver do aqrquivo apacheservice.yaml deve ta com o mesmo valor de selector:  matchLabels: app: apache-webserver do arquivo apachedeploy.yaml)
+        veja abaixo que os dois estão configurados como  "apache-webserver"
+                (apacheservice.yaml)
+                spec:
+                    type: ClusterIP
+                    selector:
+                        app: apache-webserver
+
+                (apachedeploy.yaml)
+                spec:
+                    replicas: 3
+                    selector:
+                        matchLabels:
+                        app: apache-webserver
+
+                
