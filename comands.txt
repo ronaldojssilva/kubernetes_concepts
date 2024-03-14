@@ -1,0 +1,23 @@
+kubectl apply -f replicaset1.yaml
+kubectl get all
+ 
+kubectl delete replicaset redis-replicaset
+ 
+kubectl get replicaset -o
+ 
+
+ kubectl get pods
+ kubectl get rs
+ kubectl get deploy
+ kubectl describe deployment nginx-deploy
+
+ kubectl delete pod --all
+
+ kubectl scale deployment nginx-deploy --replicas 3
+
+ kubectl apply -f deployment1.yaml
+
+ kubectl describe pod  
+
+ kubectl rollout undo deploy nginx-deploy -n default
+
