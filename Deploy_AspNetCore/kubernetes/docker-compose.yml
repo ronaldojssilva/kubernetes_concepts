@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  frontend:
+    image: pizzafrontend
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+  backend:
+    image: pizzabackend
+    build: 
+      context: .
+      dockerfile: backend/Dockerfile

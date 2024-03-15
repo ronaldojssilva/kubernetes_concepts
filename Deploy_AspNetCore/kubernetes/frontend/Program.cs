@@ -5,9 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+var serviceUrl = builder.Configuration.GetValue<string>("backendUrl");
 builder.Services.AddHttpClient<IPizzaService, PizzaService>("PizzaInfo", client =>
 {
-    client.BaseAddress = new Uri(builder.Configuration.GetValue<string>("backendUrl"));
+    client.BaseAddress = new Uri(serviceUrl);
 });
 
 builder.Services.AddScoped<IPizzaService, PizzaService>();
@@ -21,7 +22,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
