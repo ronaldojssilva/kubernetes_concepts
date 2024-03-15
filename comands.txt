@@ -1,3 +1,7 @@
+docker context use default
+minukube status
+minukube start
+
 kubectl apply -f replicaset1.yaml
 kubectl get all
  
